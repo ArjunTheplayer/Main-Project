@@ -1,0 +1,38 @@
+<p class="display-1 text-info text-center">hello</p>
+<nav class="navbar navbar-expand-lg  bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 " *ngIf="!au.userLoginStatus">
+  
+   
+        <li class="nav-item">
+          
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="contactus">contactus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="signup">signup</a>
+        </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 " *ngIf="au.userLoginStatus">
+      
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="login" (click)="au.logoutUser()">logout</a>
+        </li>
+        </ul>
+        
+        </div>
+        </div>
+        </nav>
+        <router-outlet> </router-outlet>

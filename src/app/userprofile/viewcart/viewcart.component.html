@@ -1,0 +1,19 @@
+<p>viewcart works!</p>
+<h1> hello {{user.username}}</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="card col-10 col-sm-5 col-md-4 col-lg-4 mx-auto mb-3" *ngFor="let product of cartProduct;let i=index">
+            <img src="{{product?.profilepic}}" width="10vw" height="300vw" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">{{product?.productname}}</h5>
+              <h6 class="card-title">Price: {{product?.price}}$</h6>
+              <h6 class="card-text">Product Id: {{product?.productid}}</h6>
+              <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+             <h6>Manufacture Date: {{product?.Date}}</h6>
+             
+              
+            </div>
+        </div>
+        </div>
+        </div>

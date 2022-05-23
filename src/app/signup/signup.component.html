@@ -1,0 +1,49 @@
+<p>signup works!</p>
+<!-- <img src="assets/images/Humaaans - Wireframe.png" alt=""> -->
+<div
+class="image">
+<img  src="assets/images/Humaaans - 1 Character.png" alt="">
+</div>
+<div class="row">
+ 
+  <form [formGroup]="userForm" #ref="ngForm" class="col-12 col-sm-8 col-md-6 mx-auto" (ngSubmit)="onFormsubmit()">
+<!-- Associate name -->
+<div class="mb-3">
+ <label for="un">User Name</label>
+ <input type="text" id="un" class="form-control" formControlName="username" placeholder="User Name">
+ </div>
+ <!-- password -->
+ <div class="mb-3">
+  <label for="Associateid">Password</label>
+  <input type="password"  id="password" class="form-control" formControlName="password" placeholder="Password">
+  
+</div>
+
+<!-- email -->
+<div class="mb-3">
+  <label for="un">Email</label>
+  <input type="email" id="em" class="form-control" formControlName="email" placeholder="email">
+  </div>
+
+  <!-- city -->
+<div class="mb-3">
+  <label for="un">city</label>
+  <input type="text" id="ci" class="form-control" formControlName="city" placeholder="city">
+  </div>
+
+   <!-- profile pic -->
+<div class="mb-3">
+  
+  <input type="file" id="pic" class="form-control" formControlName="profilepic" placeholder="File" (change)="onFileSelect($event)">
+  </div>
+
+<div class="mb-3 ">
+
+  <!-- invalid credentials error messages -->
+  <p class="text-danger" *ngIf="errorstatus">{{errordata}}</p>
+  <button type="submit">SignUp</button>
+
+  </div>
+  </form>
+  
+

@@ -1,0 +1,44 @@
+<!-- <img src="assets/images/Humaaans - Wireframe.png" alt=""> -->
+<div class="image">
+ <img  src="assets/images/Humaaans - 1 Character.png" alt="">
+</div>
+<div class="row">
+ 
+  <form [formGroup]="userForm" #ref="ngForm" class="col-12 col-sm-8 col-md-6 mx-auto" (ngSubmit)="onFormsubmit()">
+<!-- Associate name -->
+<div class="mb-3">
+ <label for="un">User Name</label>
+ <input type="text" id="un" class="form-control" formControlName="username" placeholder="User Name">
+ </div>
+ <!-- password -->
+ <div class="mb-3">
+  <label for="Associateid">Password</label>
+  <input type="password"  id="password" class="form-control" formControlName="password" placeholder="Password">
+  
+</div>
+<!-- radio buttons -->
+<div class="mb-3">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="radio" value="user" formControlName="radio" id="flexRadioDefault1">
+    <label class="form-check-label" for="flexRadioDefault1">
+      user
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="radio" value="admin" formControlName="radio" id="flexRadioDefault2" >
+    <label class="form-check-label" for="flexRadioDefault2">
+      Admin
+    </label>
+  </div>
+</div>
+<div class="mb-3 ">
+  <!-- submit button -->
+  
+  <button type="submit" class="btn btn-success" >Login</button>
+  <!-- invalid credentials error messages -->
+  <p class="text-danger" *ngIf="errorstatus">{{errordata}}</p>
+  <button class="btn"><a routerLink="/signup">SignUp</a></button>
+
+  </div>
+  </form>
+  

@@ -1,0 +1,55 @@
+<p>addproductform works!</p>
+<a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="addviewproduct">View Product</a>
+
+<!-- reactive forms to add product to the view products list -->
+
+<!-- <img src="assets/images/Humaaans - Wireframe.png" alt=""> -->
+<div class="image">
+    <img  src="assets/images/Humaaans - 1 Character.png" alt="">
+   </div>
+   <div class="row">
+
+      <!-- invalid credentials error messages -->
+      <p class="text-danger" *ngIf="errorstatus">{{errordata}}</p>
+    
+     <form [formGroup]="userForm" #ref="ngForm" class="col-12 col-sm-8 col-md-6 mx-auto" (ngSubmit)="onFormsubmit()">
+   <!-- Associate name -->
+   <div class="mb-3">
+    <label for="un">Product Name</label>
+    <input type="text" id="un" class="form-control" formControlName="productname" placeholder="productname">
+    </div>
+    <!-- product id -->
+    <div class="mb-3">
+     <label for="productid">ID</label>
+     <input type="number"  id="productid" class="form-control" formControlName="productid" placeholder="productid">
+     
+   </div>
+   <!-- price -->
+   <div class="mb-3">
+    <label for="price">Price</label>
+    <input type="number"  id="price" class="form-control" formControlName="price" placeholder="price">
+</div>
+    <!-- date -->
+   <div class="mb-3">
+    <label for="Date">Date</label>
+    <input type="date"  id="Date" class="form-control" formControlName="Date" placeholder="Date">
+</div>
+      <!-- profile pic -->
+<div class="mb-3">
+  
+    <input type="file" id="picture" class="form-control" formControlName="profilepic" placeholder="File" (change)="onFileSelect($event)">
+    </div>
+  
+   
+   
+   <div class="mb-3 ">
+     <!-- submit button -->
+     
+     <button type="submit" class="btn btn-success" >Add product</button>
+   
+     
+   
+     </div>
+     </form>
+     
+   
