@@ -1,4 +1,4 @@
-<p>userprofile works!</p>
+<div class="container">
 <p class="text-end">Hello,{{user?.username}}</p>
 <!-- <p>Here's your details,{{user.city}}</p>
 <p>Here's your details,{{user.email}}</p> -->
@@ -7,8 +7,11 @@
 <button class="btn btn-danger mx-auto mt-5 d-block" (click)="onbuttonclick()">get protected data</button>
 
 <hr>
-<div>
-  <button type="submit"(click)="viewcart(user?.username)"  class="btn float-end" >viewcart</button>
+<div  class="container" >
+  <button type="submit"(click)="viewcart(user?.username)"  class="btn float-end  position-relative" >viewcart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {{cartCount}}
+    <span class="visually-hidden">unread messages</span>
+  </span></button>
 </div>
 <div class="container">
 <div class="row">
@@ -26,4 +29,5 @@
     </div>
     </div>
     </div>
-    <p>Happy</p>
+  </div>
+    

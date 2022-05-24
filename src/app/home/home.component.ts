@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+count:any
+  constructor(private cs:CartService) { }
 
   ngOnInit(): void {
+    this.cs.cartCountObsrvable.subscribe(next=>{
+      this.count=next;
+    })
   }
 
 }

@@ -13,12 +13,54 @@ import { UserService } from '../user.service';
 export class UserprofileComponent implements OnInit {
 user: any;
 allProducts:any;
+cartCount:any
+cartProduct:any
+
 
   constructor(private au:AuthenticationService, private userservice:UserService,private cs:CartService, private router:Router) { }
 
   ngOnInit(): void {
     this.getProducts();
     this.user= this.au.currentUser
+   //cart count
+
+   this.cs.viewCart(this.user?.username).subscribe({
+
+    //update BahaviourSubject in UserService
+
+    next:(res)=>{
+
+      console.log("CP",res)
+
+      let userObj=res['payload']
+      if (res['payload']==null){
+        this.cartCount=0;
+      }
+      else{
+
+      this.cartProduct=userObj?.products;
+      this.cs.updateCartCount(this.cartProduct.length)
+
+      //get latest cartCount
+
+        this.cs.cartCountObsrvable.subscribe(product=>{
+
+        this.cartCount=product;
+        
+
+      })}
+
+    },
+
+    error:(error)=>{
+
+      console.log(error)
+
+      alert("there is no user name matching")
+
+    }
+
+  })
   //  this.allProducts=this.userservice.detailsFromAddProductForm
   //  console.log(this.allProducts)
 
@@ -60,6 +102,9 @@ allProducts:any;
     console.log(cartObj);
     this.cs.createcart(cartObj).subscribe({
       next:(res)=>{
+        //update count
+
+        this.cs.updateCartCount(this.cs.getCurrentCartCount()+1)
         console.log("cart object structure is created",res)
       },
       error:(err)=>{

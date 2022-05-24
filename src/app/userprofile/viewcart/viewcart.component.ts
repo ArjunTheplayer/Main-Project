@@ -16,12 +16,15 @@ cartProduct:any
     this.user=this.au.currentUser
     console.log("cart user",this.user)
     this.viewcart(this.user.username)
+
+
   }
   private viewcart(username){
     this.cs.viewCart(username).subscribe({
       next:(response)=>{
         let cartObj=response['payload']
         //console.log(user)
+        
         this.cartProduct=cartObj.products;
       },
       error:(err)=>{
