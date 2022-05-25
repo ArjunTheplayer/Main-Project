@@ -6,13 +6,16 @@
 
 <button class="btn btn-danger mx-auto mt-5 d-block" (click)="onbuttonclick()">get protected data</button>
 
+<i class="fa-solid fa-cat"></i>
 <hr>
 <div  class="container" >
-  <button type="submit"(click)="viewcart(user?.username)"  class="btn float-end  position-relative" >viewcart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+  <!-- view cart button -->
+  <button type="submit"(click)="viewcart(user?.username)"  class="btn float-end  position-relative" ><i class="fa-solid fa-cat"></i><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
     {{cartCount}}
     <span class="visually-hidden">unread messages</span>
   </span></button>
 </div>
+
 <div class="container">
 <div class="row">
     <div class="card col-10 col-sm-5 col-md-4 col-lg-4 mx-auto mb-3" *ngFor="let product of allProducts;let i=index">
